@@ -17,7 +17,6 @@ const productSchema = mongoose.Schema({
     image: {
         type: String,
         required: true,
-        unique: true,
     },
     discountPercentage: {
         type: Number,
@@ -34,6 +33,6 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true,
     }
-})
+}, { timestamps: true })
 
-export const ProductModel = mongoose.model('Product', productSchema)
+export const productModel = mongoose.model('Product', productSchema);
