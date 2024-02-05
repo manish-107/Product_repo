@@ -31,4 +31,10 @@ const addProduct = asyncHandler(async (req, res) => {
     }
 });
 
-export { addProduct }; // Corrected export statement
+
+const getAllProduct = asyncHandler(async (req, res) => {
+    const users = await productModel.find({});
+    res.json({ users })
+})
+
+export { addProduct, getAllProduct }; 
