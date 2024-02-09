@@ -1,10 +1,11 @@
 import React from 'react'
 
-const ProCard = () => {
+const ProCard = ({ key, name }) => {
+
     return (
         <div className='p-3 border-4 rounded-lg bg-slate-200 ' >
             <div className='flex justify-between'>
-                <h2 className='pb-2 font-bold '>iPhone 9 <p className='text-red-500 '>Apple</p></h2>
+                <h2 className='pb-2 font-bold '>{name} {key} <p className='text-red-500 '>Apple</p></h2>
                 <h2 className='pb-2 font-bold text-green-800'>$899</h2>
             </div>
             <img className='rounded-md shadow-lg ' src='https://cdn.dummyjson.com/product-images/1/thumbnail.jpg' />
