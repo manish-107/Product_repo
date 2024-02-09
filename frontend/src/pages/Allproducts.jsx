@@ -9,6 +9,7 @@ const Allproducts = () => {
         queryKey: ["product"],
         queryFn: fetchProducts,
     })
+    console.log(data)
     if (isLoading) return <h1>loading..</h1>
 
     if (isError) return <h1>error</h1>
@@ -19,7 +20,8 @@ const Allproducts = () => {
             <div className='grid grid-rows-3 p-5'>
                 <div className="grid grid-cols-4 gap-5">
                     {data.map((pro) => (
-                        <ProCard key={pro._id} name={pro.name} />
+
+                        <ProCard key={pro._id} pro={pro} />
                     ))}
                 </div>
             </div>

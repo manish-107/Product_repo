@@ -34,7 +34,10 @@ const addProduct = asyncHandler(async (req, res) => {
 
 const getAllProduct = asyncHandler(async (req, res) => {
     const users = await productModel.find({});
-    res.json({ users })
+    setTimeout(() => {
+        res.json({ users })
+
+    }, 1000);
 })
 
 export { addProduct, getAllProduct }; 
