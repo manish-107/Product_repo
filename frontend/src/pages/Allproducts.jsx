@@ -8,8 +8,8 @@ const Allproducts = () => {
     const { isLoading, isError, data } = useQuery({
         queryKey: ["product"],
         queryFn: fetchProducts,
+        staleTime: 10 * (60 * 1000),
     })
-    console.log(data)
     if (isLoading) return <h1>loading..</h1>
 
     if (isError) return <h1>error</h1>
@@ -18,9 +18,8 @@ const Allproducts = () => {
         <div className=' bg-slate-500'>
             <div className='flex justify-center p-3 text-3xl font-semibold'>All Products</div>
             <div className='grid grid-rows-3 p-5'>
-                <div className="grid grid-cols-4 gap-5">
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {data.map((pro) => (
-
                         <ProCard key={pro._id} pro={pro} />
                     ))}
                 </div>
