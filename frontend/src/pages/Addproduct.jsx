@@ -21,11 +21,10 @@ const Addproduct = () => {
                 exact: true,
             })
 
-            navigate('/addproduct')
+            navigate('/')
         },
 
     })
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import ProCard from '../components/ProCard';
 import { useQuery } from '@tanstack/react-query';
 import { fetchProducts } from '../assets/api';
+import LoadingPage from './LoadingPage';
 
 const Allproducts = () => {
 
@@ -10,7 +11,7 @@ const Allproducts = () => {
         queryFn: fetchProducts,
         staleTime: 10 * (60 * 1000),
     })
-    if (isLoading) return <h1>loading..</h1>
+    if (isLoading) return <LoadingPage />
 
     if (isError) return <h1>error</h1>
 
