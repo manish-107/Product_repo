@@ -3,6 +3,7 @@ import ProCard from '../components/ProCard';
 import { useQuery } from '@tanstack/react-query';
 import { fetchProducts } from '../assets/api';
 import LoadingPage from './LoadingPage';
+import Error from './Error';
 
 const Allproducts = () => {
 
@@ -13,7 +14,7 @@ const Allproducts = () => {
     })
     if (isLoading) return <LoadingPage />
 
-    if (isError) return <h1>error</h1>
+    if (isError) return <Error />
 
     return (
         <div className=' bg-slate-500'>

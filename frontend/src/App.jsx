@@ -5,6 +5,7 @@ import Addproduct from './pages/Addproduct'
 import Allproducts from './pages/Allproducts'
 import MyLoader from './components/MyLoader'
 import LoadingPage from './pages/LoadingPage'
+import Error from './pages/Error'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/" element={<Allproducts />} />
           <Route path="/addproduct" element={<Addproduct />} />
           <Route path="/loader" element={<LoadingPage />} />
+          <Route path="/error" element={<Error />} />
         </Routes>
       </BrowserRouter>
     </div>
