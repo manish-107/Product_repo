@@ -40,4 +40,36 @@ const getAllProduct = asyncHandler(async (req, res) => {
     }, 1000);
 })
 
-export { addProduct, getAllProduct }; 
+const paginationProduct = asyncHandler(async (req, res) => {
+    const page = parseInt(req.query.page) || 1; // default page 1 if not provided
+    const limit = parseInt(req.query.limit) || 8; // default limit to 10 if not provided
+    const startIndex = (page - 1) * limit;
+
+    // Retrieve total count of products
+    const totalCount = await productModel.countDocuments();
+
+    // Retrieve paginated products
+    const products = await productModel.find().limit(limit).skip(startIndex);
+
+    const response = {
+        currentPage: page,
+        totalPages: Math.ceil(totalCount / limit),
+        totalItems: totalCount,
+        products: products.map(product => ({
+            // Include only the properties you need from the product object
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            description: product.description,
+            image: product.image,
+            discountPercentage: product.discountPercentage,
+            stock: product.stock,
+            brand: product.brand,
+            category: product.category,
+        }))
+    };
+
+    res.status(200).json(response);
+});
+
+export { addProduct, getAllProduct, paginationProduct }; 

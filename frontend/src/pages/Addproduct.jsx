@@ -2,6 +2,7 @@ import React from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { postProducts } from '../assets/api'
 import { useNavigate } from 'react-router-dom'
+import Error from './Error'
 
 const Addproduct = () => {
     const navigate = useNavigate();
@@ -38,6 +39,8 @@ const Addproduct = () => {
         const description = e.target.elements.desc.value;
         mutate({ name, price, brand, category, discountPercentage, stock, image, description });
     };
+
+    if (isError) return <Error />
 
     return (
         <>

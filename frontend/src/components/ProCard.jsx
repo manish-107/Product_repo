@@ -6,7 +6,7 @@ const ProCard = (props) => {
     return (
         <div className='p-3 border-4 rounded-lg bg-slate-200 ' >
             <div className='flex justify-between'>
-                <h2 className='pb-2 font-bold '>{name}2<p className='text-red-500 '>{brand}</p></h2>
+                <h2 className='pb-2 font-bold '>{name}<p className='text-red-500 '>{brand}</p></h2>
                 <h2 className='pb-2 font-bold text-green-800'>${price}</h2>
             </div>
             <div className='flex justify-center h-44'>
