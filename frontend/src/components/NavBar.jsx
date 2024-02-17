@@ -7,6 +7,7 @@ const NavBar = () => {
         <div className="flex gap-6 p-6 font-bold text-white bg-black">
             <div className='cursor-pointer ' onClick={() => navigate('/addproduct')}>Add Products</div>
             <div className='cursor-pointer ' onClick={() => navigate('/')}>Products</div>
+            <div className='cursor-pointer ' onClick={() => navigate('/page')}>Pagination</div>
         </div>
 
 

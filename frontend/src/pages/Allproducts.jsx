@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import ProCard from '../components/ProCard';
 import { useQuery } from '@tanstack/react-query';
 import { fetchProducts } from '../assets/api';
