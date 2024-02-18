@@ -7,6 +7,7 @@ import LoadingPage from './pages/LoadingPage'
 import Error from './pages/Error'
 import PageNotfound from './pages/PageNotfound'
 import Pagination from './pages/Pagination'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="*" element={<PageNotfound />} />
         </Routes>
       </BrowserRouter>
+      <Footer />
     </div>
   )
 }

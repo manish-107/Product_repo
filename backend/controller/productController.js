@@ -52,12 +52,19 @@ const paginationProduct = asyncHandler(async (req, res) => {
         // Retrieve paginated products
         const products = await productModel.find().limit(limit).skip(startIndex);
 
+        const totalPages = Math.ceil(totalCount / limit);
+        const hasNextPage = page < totalPages;
+        const hasPreviousPage = page > 1;
+
         const response = {
             currentPage: page,
-            totalPages: Math.ceil(totalCount / limit),
+            totalPages: totalPages,
             totalItems: totalCount,
+            hasNextPage: hasNextPage,
+            hasPreviousPage: hasPreviousPage,
+            nextPage: hasNextPage ? page + 1 : null,
+            previousPage: hasPreviousPage ? page - 1 : null,
             products: products.map(product => ({
-                // Include only the properties you need from the product object
                 id: product.id,
                 name: product.name,
                 price: product.price,
@@ -69,13 +76,16 @@ const paginationProduct = asyncHandler(async (req, res) => {
                 category: product.category,
             }))
         };
+        setTimeout(() => {
+            res.status(200).json(response);
 
-        res.status(200).json(response);
+        }, 1000)
     } catch (error) {
         console.error('Error in paginationProduct:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
 
 
 export { addProduct, getAllProduct, paginationProduct }; 

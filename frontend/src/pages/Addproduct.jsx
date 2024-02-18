@@ -44,7 +44,7 @@ const Addproduct = () => {
 
     return (
         <>
-            <form className='flex items-center justify-center mt-10 ' onSubmit={handleSubmit}>
+            <form className='flex items-center justify-center mt-10 mb-5 ' onSubmit={handleSubmit}>
                 <div className='w-3/5 p-8 rounded-lg shadow-md gap-y-1 gap-x-10 bg-gray-2 00 sm:grid-cols-1 lg:grid-cols-2 sm:grid lg:grid bg-slate-300'>
                     <div className="mb-4">
                         <label htmlFor="name" className="block font-semibold text-gray-700">Name:</label>

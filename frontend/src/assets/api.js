@@ -6,19 +6,20 @@ const fetchProducts = async () => {
     return response.data.users
 }
 
-const fetchPage = async () => {
-    const pageNumber = 2;
+const fetchPage = async (pageNumber) => {
     try {
         const res = await axios.get(`${url}/products/page`, {
             params: {
                 page: pageNumber
             }
         });
-        console.log(res.data);
+        return res.data; // Return the fetched data
     } catch (error) {
         console.error('Error:', error);
+        throw error; // Rethrow the error to be handled by the caller
     }
 }
+
 
 
 const postProducts = async (postData) => {

@@ -13,7 +13,6 @@ const Allproducts = () => {
         staleTime: 10 * (60 * 1000),
     })
     if (isLoading) return <LoadingPage />
-
     if (isError) return <Error />
 
     return (
@@ -25,6 +24,7 @@ const Allproducts = () => {
                         <ProCard key={pro._id} pro={pro} />
                     ))}
                 </div>
+
             </div>
         </div >
     )
